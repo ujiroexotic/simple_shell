@@ -5,6 +5,7 @@
  * @info: parameter struct
  * @buf: address of buffer
  * @len: address of len var
+ *
  * Return: bytes read
  */
 ssize_t input_buf(info_t *info, char **buf, size_t *len)
@@ -43,10 +44,10 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 	return (r);
 }
 
-
 /**
  * get_input - gets a line minus the newline
  * @info: parameter struct
+ *
  * Return: bytes read
  */
 ssize_t get_input(info_t *info)
@@ -64,6 +65,7 @@ ssize_t get_input(info_t *info)
 	{
 		j = i; /* init new iterator to current buf position */
 		p = buf + i; /* get pointer for return */
+
 		check_chain(info, buf, &j, i, len);
 		while (j < len) /* iterate to semicolon or end */
 		{
@@ -78,6 +80,7 @@ ssize_t get_input(info_t *info)
 			i = len = 0; /* reset position and length */
 			info->cmd_buf_type = CMD_NORM;
 		}
+
 		*buf_p = p; /* pass back pointer to current command position */
 		return (_strlen(p)); /* return length of current command */
 	}
@@ -86,11 +89,12 @@ ssize_t get_input(info_t *info)
 	return (r); /* return length of buffer from _getline() */
 }
 
- /**
+/**
  * read_buf - reads a buffer
  * @info: parameter struct
  * @buf: buffer
  * @i: size
+ *
  * Return: r
  */
 ssize_t read_buf(info_t *info, char *buf, size_t *i)
@@ -110,6 +114,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
  * @info: parameter struct
  * @ptr: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
+ *
  * Return: s
  */
 int _getline(info_t *info, char **ptr, size_t *length)
@@ -154,6 +159,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 /**
  * sigintHandler - blocks ctrl-C
  * @sig_num: the signal number
+ *
  * Return: void
  */
 void sigintHandler(__attribute__((unused))int sig_num)
