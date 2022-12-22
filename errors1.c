@@ -28,7 +28,6 @@ int _erratoi(char *s)
 	return (result);
 }
 
-
 /**
  * print_error - prints an error message
  * @info: the parameter & return info struct
@@ -51,6 +50,7 @@ void print_error(info_t *info, char *estr)
  * print_d - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fd: the filedescriptor to write to
+ *
  * Return: number of characters printed
  */
 int print_d(int input, int fd)
@@ -85,12 +85,12 @@ int print_d(int input, int fd)
 	return (count);
 }
 
-
 /**
  * convert_number - converter function, a clone of itoa
  * @num: number
  * @base: base
  * @flags: argument flags
+ *
  * Return: string
  */
 char *convert_number(long int num, int base, int flags)
@@ -105,6 +105,7 @@ char *convert_number(long int num, int base, int flags)
 	{
 		n = -num;
 		sign = '-';
+
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
@@ -123,6 +124,7 @@ char *convert_number(long int num, int base, int flags)
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
+ *
  * Return: Always 0;
  */
 void remove_comments(char *buf)
